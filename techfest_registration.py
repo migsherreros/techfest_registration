@@ -30,5 +30,18 @@ if len(unique_tracks) < 2:
 else:
     print(",".join(unique_tracks))
 
+names_seen = set()
+duplicates = set()
 
+for participant in participants:
+    name = participant["name"]
+    if name in names_seen:
+        duplicates.add(name)
+    else:
+        names_seen.add(name)
+if len(duplicates) > 0:
+    for name in duplicates:
+        print("\nDuplicate name found:", name)
+else:
+    print("\nNo duplicate names.")
 
