@@ -3,7 +3,7 @@ import sys
 print("Welcome to SMIT TechFest!")
 print("Event organized by Miguel Herreros of APPDAET BTCS2")
 
-num_p = int (input("How many participants will register?"))
+num_p = int (input("\nHow many participants will register?"))
 if num_p <= 0:
     print("Invalid number of participants")
     sys.exit()
@@ -45,3 +45,15 @@ if len(duplicates) > 0:
 else:
     print("\nNo duplicate names.")
 
+track_summary = {}
+
+for participant in participants:
+    track = participant["track"]
+    if track in track_summary:
+        track_summary[track] += 1
+    else:
+        track_summary[track] = 1
+
+print("\nParticipants per track:")
+for track in track_summary:
+    print(track, ":", track_summary[track])
