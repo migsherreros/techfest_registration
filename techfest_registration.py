@@ -14,6 +14,21 @@ for x in range(num_p):
     track = input("Enter chosen track: ")
     participants.append({"name": name, "track": track})
 
-    print("Registered participants:")
-    for participant in participants:
-        print(participant["name"], participant["track"])
+print("\nRegistered participants:")
+count = 1
+for participant in participants:
+    print(count,"." ,participant["name"], "-", participant["track"])
+    count += 1
+
+unique_tracks = set()
+for participant in participants:
+    unique_tracks.add(participant["track"])
+
+print("\nTracks offered in this event:")
+if len(unique_tracks) < 2:
+    print("Not enough variety in tracks.")
+else:
+    print(",".join(unique_tracks))
+
+
+
